@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body p-5">
+                <div class="text-center mb-4">
+                    <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3" 
+                         style="width: 80px; height: 80px;">
+                        <i class="fas fa-plus-circle text-primary fs-2"></i>
+                    </div>
+                    <h3 class="fw-bold mb-2">Post a New Skill</h3>
+                    <p class="text-muted mb-0">Share your knowledge with the campus community</p>
+                </div>
+                
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">
+                            <i class="fas fa-heading me-2 text-primary"></i>Title
+                        </label>
+                        {{ form.title }}
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-layer-group me-2 text-primary"></i>Category
+                            </label>
+                            {{ form.category }}
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label fw-semibold">
+                                <i class="fas fa-exchange-alt me-2 text-primary"></i>Type
+                            </label>
+                            {{ form.listing_type }}
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">
+                            <i class="fas fa-align-left me-2 text-primary"></i>Description
+                        </label>
+                        {{ form.description }}
+                        <div class="form-text">Describe what you want to teach or learn</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="fas fa-paper-plane me-2"></i>Publish Skill
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
